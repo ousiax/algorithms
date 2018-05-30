@@ -15,6 +15,7 @@ func main() {
 }
 
 // MERGER_SORT(A,p,r)
+//
 // if p < r
 //     q = [(p+r)/2] // round down
 //     MERGE_SORT(A,p,q)
@@ -30,6 +31,7 @@ func MERGE_SORT(A []int, p, r int) {
 }
 
 // MERGE(A,p,q,r)
+//
 // n1 = q - p + 1
 // n2 = r - q
 // let L[1...n1+1] and R[1..n2+1] be new arrays
