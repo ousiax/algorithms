@@ -9,21 +9,21 @@ func main() {
 
 	fmt.Printf("INIT: %v\n", A)
 
-	MERGER_SORT(A, 0, len(A)-1)
+	MERGE_SORT(A, 0, len(A)-1)
 
 	fmt.Printf("FIN: %v\n", A)
 }
 
-func MERGER_SORT(A []int, p, r int) {
+func MERGE_SORT(A []int, p, r int) {
 	if p < r {
 		q := (p + r) / 2
-		MERGER_SORT(A, p, q)
-		MERGER_SORT(A, q+1, r)
-		MERGER(A, p, q, r)
+		MERGE_SORT(A, p, q)
+		MERGE_SORT(A, q+1, r)
+		MERGE(A, p, q, r)
 	}
 }
 
-func MERGER(A []int, p, q, r int) {
+func MERGE(A []int, p, q, r int) {
 	N1 := q - p + 1
 	N2 := r - q
 
