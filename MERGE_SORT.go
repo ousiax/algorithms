@@ -15,8 +15,7 @@ func main() {
 }
 
 // MERGER_SORT(A,p,r)
-//
-// if p < r
+//   if p < r
 //     q = [(p+r)/2] // round down
 //     MERGE_SORT(A,p,q)
 //     MERGE_SORT(A,q+1,r)
