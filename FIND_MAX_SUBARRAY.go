@@ -12,19 +12,18 @@ func main() {
 }
 
 // FIND-MAX-SUBARRAY(A, low, high)
-//
-// if low == high
-//   return (low, high, A[low])				// base case: only one element
-// mid = [(low + high) / 2] // round down
-// (left-low, left-high, left-sum) = FIND-MAX-SUBARRAY(A, low, mid)
-// (right-low, right-high, right-sum) = FIND-MAX-SUBARRAY(A, mid+1, high)
-// (cross-low, cross-high, cross-sum) = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
-// if left-sum >= right-sum and left-sum >= cross-sum
-//    return (left-low, left-high, left-sum)
-// elseif right-sum >= right-sum and right-sum >= cross-sum
-//    return (right-low, right-high, right-sum)
-// else
-//    return (cross-low, cross-high, cross-sum)
+//   if low == high
+//     return (low, high, A[low])				// base case: only one element
+//   mid = [(low + high) / 2] // round down
+//   (left-low, left-high, left-sum) = FIND-MAX-SUBARRAY(A, low, mid)
+//   (right-low, right-high, right-sum) = FIND-MAX-SUBARRAY(A, mid+1, high)
+//   (cross-low, cross-high, cross-sum) = FIND-MAX-CROSSING-SUBARRAY(A, low, mid, high)
+//   if left-sum >= right-sum and left-sum >= cross-sum
+//     return (left-low, left-high, left-sum)
+//   elseif right-sum >= right-sum and right-sum >= cross-sum
+//     return (right-low, right-high, right-sum)
+//   else
+//     return (cross-low, cross-high, cross-sum)
 func FIND_MAX_SUBARRAY(A []int, low, high int) (max_left, max_right, max_sum int) {
 	if low == high {
 		return low, high, A[low]
