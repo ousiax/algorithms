@@ -1,0 +1,39 @@
+package stable_sort
+
+// COUNTING-SORT(A,B,k)
+//   let C[0..k] be a new array
+//   for i = 0 to k
+//     C[i] = 0
+//   for j = 1 downto A.length
+//     C[A[j]] = C[A[j]] + 1
+//   // C[i] now contains the number of elements equal to i.
+//   for i = 1 to k
+//     C[i] = C[i] + C[i-1]
+//   // C[i] now contains the number of elements less than or equal to i.
+//   for j = A.length downto 1
+//     B[A[C[j]]] = A[j]
+//     C[j] = C[j] - 1
+func COUNTING_SORT(A, B []int, k int) {
+	C := make([]int, k+1)
+	for i := 0; i < len(A); i++ {
+		C[A[i]] = C[A[i]] + 1
+	}
+	for i := 1; i < len(C); i++ {
+		C[i] = C[i] + C[i-1]
+	}
+
+	for i := 0; i < len(A); i++ {
+		B[C[A[i]]-1] = A[i]
+		C[A[i]] = C[A[i]] - 1
+	}
+}
+
+func K(A []int) int {
+	k := -1
+	for _, a := range A {
+		if a > k {
+			k = a
+		}
+	}
+	return k
+}
