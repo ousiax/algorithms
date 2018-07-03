@@ -19,5 +19,20 @@ func main() {
 	t.INSERT(NewNode(6))
 	t.INSERT(NewNode(7))
 	t.INSERT(NewNode(3))
-	fmt.Printf("%s\n", t)
+
+	fmt.Printf("PREORDER: ")
+	t.PREORDER_WALK(func(x *Node) { fmt.Printf("%d,", x.Key()) })
+	fmt.Println()
+
+	fmt.Printf("INORDER: ")
+	t.INORDER_WALK(func(x *Node) { fmt.Printf("%d,", x.Key()) })
+	fmt.Println()
+
+	fmt.Printf("POSTORDER: ")
+	t.POSTORDER_WALK(func(x *Node) { fmt.Printf("%d,", x.Key()) })
+	fmt.Println()
+
+	fmt.Printf("LEVELORDER: ")
+	t.LEVELORDER_WALK(func(x *Node) { fmt.Printf("%d,", x.Key()) })
+	fmt.Println()
 }
