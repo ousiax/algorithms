@@ -173,3 +173,69 @@ func (t *Tree) INSERT(z *Node) {
 		y.right = z
 	}
 }
+
+// TREE-INSERT-RECURSION(T,z)
+//   if t.root == nil
+//     t.root = z
+//   if z.key < t.root.key
+//     INSER_LEFT(t.root, z)
+//   if z.key > t.root.key
+//     INSER_RIGHT(t.root, z)
+// - - -
+// INSERT_LEFT(p,z)
+//   if p.left == nil
+//     p.left = z
+//   else
+//     x = p.left
+//     if z.key < x.key
+//       INSERT_LEFT(x, z)
+//     else if z.key > x.key
+//       INSERT_RIGHT(x, z)
+// INSERT_RIGHT(p,z)
+//   if p.right == nil
+//     p.right = z
+//   else
+//     x = p.right
+//     if z.key < x.key
+//       INSERT_LEFT(x, z)
+//     else if z.key > x.key
+//       INSERT_RIGHT(x, z)
+func (t *Tree) INSERT_RECURSION(z *Node) {
+	if t.root == nil {
+		t.root = z
+	}
+	x := t.root
+	if z.key < x.key {
+		insert_left(x, z)
+	} else if z.key > x.key {
+		insert_right(x, z)
+	}
+}
+
+func insert_left(p, z *Node) {
+	if p.left == nil {
+		p.left = z
+		return
+	}
+
+	x := p.left
+	if z.key < x.key {
+		insert_left(x, z)
+	} else if z.key > x.key {
+		insert_right(x, z)
+	}
+}
+
+func insert_right(p, z *Node) {
+	if p.right == nil {
+		p.right = z
+		return
+	}
+
+	x := p.right
+	if z.key < x.key {
+		insert_left(x, z)
+	} else if z.key > x.key {
+		insert_right(x, z)
+	}
+}
